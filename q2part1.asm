@@ -6,7 +6,7 @@ arr2 : dw      20,2,4,10
 result1 : dw   0
 result2 : dw   0
 min : dw       0
-
+finalResult: dw 0
 
 start : mov bx, 0
       
@@ -60,9 +60,12 @@ loop4  :     add bx, 2
 
 fun :   mov ax, [result2]
          mov bx ,[min]
+         cmp bx,0
+         je DBZ
          div  bx 
-        jmp end_programm
-
-
- end_programm :   mov ax, 0x4c00
+      mov[finalResult],ax;
+ DBZ:
+ mov ax, 0x4c00
     int 0x21
+    
+    
