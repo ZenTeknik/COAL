@@ -1,4 +1,4 @@
-[org 0x0100]
+..[org 0x0100]
 
 ; start of code 
 
