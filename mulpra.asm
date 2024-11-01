@@ -1,0 +1,24 @@
+                      ; here is the code for the 4bit multiplication
+[org 0x0100]
+                       jmp start 
+multiplicand : db 13
+multiplier  :  db  5 
+  result :     db 0 
+  
+  
+start :   mov bl,[multiplicand]
+          mov dl ,[multiplier]
+          mov cl ,4
+          
+checkbit :  shr dl,1
+            dg jnc skip 
+         
+           add [result],bl
+         
+skip :    shl bl,1
+          dec cl
+          jnz checkbit
+          
+         mov ax, 0x4c00
+         int 0x21
+         
