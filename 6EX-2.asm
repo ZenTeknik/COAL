@@ -1,6 +1,6 @@
 ; Roll number printing in assembly in assembly
 [org 0x0100]
-jmp start
+                      jmp start
 message:   db   '[23P-0573-HARIS]'
 length:    dw    16
 
